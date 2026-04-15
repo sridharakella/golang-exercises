@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
 
 func main() {
 
@@ -15,5 +18,17 @@ func main() {
 	for result := range channal {
 		fmt.Println(result)
 	}
+
+	go func() {
+		for {
+			select {
+			default:
+				fmt.Println("default")
+			}
+
+		}
+	}()
+
+	time.Sleep(1 * time.Millisecond)
 
 }
