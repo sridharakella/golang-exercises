@@ -14,6 +14,7 @@ func repeatFunc[T any, K any](done <-chan K, fn func() T) <-chan T {
 			select {
 			case <-done:
 				return
+				//case <-time.After(3* time.Second):
 			default:
 				stream <- fn()
 			}
